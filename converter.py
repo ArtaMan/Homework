@@ -5,7 +5,7 @@ from tkinter import *
 
 def send1(i):
     # print(i)
-    text = 'За ' + str(valuty[i][3]) + ' рублей ' + str(valuty[i][2]) + ' ' + str(valuty[i][1])
+    text = 'За ' + str(valuty[i][2]) + ' рублей ' + str(valuty[i][3]) + ' ' + str(valuty[i][1])
     ans['text'] = text
 
 
