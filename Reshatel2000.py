@@ -22,18 +22,30 @@ def _press(event):
         return
 
     D1 = b1 ** 2 - 4 * a1 * c1
+    text = ''
     if D1 < 0:
-        x1['text'] = 'Корней нет'
-        x2['text'] = 'Корней нет'
-        D['text'] = D1
+        text += 'D = b² - 4ac\n'
+        text += 'D = ' + str(D1) + '\n'
+        text += 'Дискриминанта меньше нуля\n'
+        text += 'У этого уравнения корней нет\n'
     elif D1 == 0:
-        x1['text'] = -b1 / (2 * a1)
-        x2['text'] = -b1 / (2 * a1)
-        D['text'] = D1
+        text += 'D = b² - 4ac\n'
+        text += 'D = ' + str(D1) + '\n'
+        text += 'Дискриминанта равна нулю\n'
+        text += '     -b\n'
+        text += 'x = ----\n'
+        text += '     2a  \n'
+        text += 'x = ' + str((-b1 + sqrt(D1)) / (2 * a1)) + '\n'
     else:
-        x1['text'] = (-b1 + sqrt(D1)) / (2 * a1)
-        x2['text'] = (-b1 - sqrt(D1)) / (2 * a1)
-        D['text'] = D1
+        text += 'D = b² - 4ac\n'
+        text += 'D = ' + str(D1) + '\n'
+        text += 'Дискриминанта больше нуля\n'
+        text += '     -b ± √D\n'
+        text += 'x = ---------\n'
+        text += '       2a  \n'
+        text += 'x1 = ' + str((-b1 + sqrt(D1)) / (2 * a1)) + '\n'
+        text += 'x2 = ' + str((-b1 - sqrt(D1)) / (2 * a1)) + '\n'
+    solve['text'] = text
 
 
 root = Tk()
@@ -43,17 +55,12 @@ c = Text(root, height=1, width=5)
 a.insert('1.0', '1')
 b.insert('1.0', '1')
 c.insert('1.0', '1')
-xyz = Label(root, text='ax2 + bx + c = 0')
+xyz = Label(root, text='ax² + bx + c = 0')
 la = Label(root, text='A        = ', width=10, height=1)
 lb = Label(root, text='B        = ', width=10, height=1)
 lc = Label(root, text='C        = ', width=10, height=1)
 press = Button(root, text='Решить', width=10, height=1)
-lx1 = Label(root, text='x1       = ', width=10, height=1)
-lx2 = Label(root, text='x1       = ', width=10, height=1)
-lD = Label(root, text='x1        = ', width=10, height=1)
-x1 = Label(root, height=1, width=10)
-x2 = Label(root, height=1, width=10)
-D = Label(root, height=1, width=5)
+solve = Label(root, text='', width=30, height=10)
 
 xyz.grid(row=0, column=0)
 la.grid(row=1, column=0)
@@ -63,11 +70,6 @@ a.grid(row=1, column=1)
 b.grid(row=2, column=1)
 c.grid(row=3, column=1)
 press.grid(row=4, column=0)
-lx1.grid(row=5, column=0)
-x1.grid(row=5, column=1)
-lx2.grid(row=6, column=0)
-x2.grid(row=6, column=1)
-lD.grid(row=7, column=0)
-D.grid(row=7, column=1)
+solve.grid(row=5, column=0)
 press.bind('<Button-1>', _press)
 root.mainloop()
