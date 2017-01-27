@@ -35,7 +35,10 @@ def _press(event):
         text += '     -b\n'
         text += 'x = ----\n'
         text += '     2a  \n'
-        text += 'x = ' + str((-b1 + sqrt(D1)) / (2 * a1)) + '\n'
+        if (-b1 + sqrt(D1)) / (2 * a1) == 0:
+            text += 'x = 0\n'
+        else:
+            text += 'x = ' + str((-b1 + sqrt(D1)) / (2 * a1)) + '\n'
     else:
         text += 'D = b² - 4ac\n'
         text += 'D = ' + str(D1) + '\n'
