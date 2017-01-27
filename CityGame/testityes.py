@@ -1,7 +1,6 @@
 import amosov as player1
-import Gusarov as player2
-import time
 
+from CityGame import Gusarov as player2
 
 word2 = 'Москва'
 while True:
