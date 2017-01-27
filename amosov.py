@@ -2,6 +2,8 @@ from random import *
 
 
 def game(city):
+    if city == -1:
+        return choice(a)
     city = city.lower()
     # if lastcity != -1:
     #     lastcity = lastcity.lower()

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+from random import *
 inpu = open('NCities2.txt', 'r', encoding='utf8')
 
 a = inpu.readlines()
@@ -17,6 +18,8 @@ def game(iniortown):
 
 
     # iniortown.split()
+    if iniortown == -1:
+        return choice(a)
     town = ''
     for i in iniortown:
         i = str(i)
