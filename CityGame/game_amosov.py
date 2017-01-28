@@ -32,7 +32,7 @@ def game(city):
         lol = choice(words[temp])
     used[ord(lol[0].lower()) - 1072].append(lol)
     lol = lol[0].upper() + lol[1:len(lol) - 1]
-    for i in range(len(lol) - 1):
+    for i in range(len(lol)):
         if lol[i] == '-' or lol[i] == ' ':
             lol = lol[0:i + 1] + lol[i + 1].upper() + lol[i + 2:]
     return lol

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 from random import *
-inpu = open('NCities2.txt', 'r', encoding='utf8')
+inpu = open('citiesAmosov.txt', 'r', encoding='utf8')
 
 a = inpu.readlines()
 for i in range(len(a)):
@@ -32,7 +32,7 @@ def game(iniortown):
     # town += '\n'
 
     if town not in a:
-        print('Я такого города не знаю, либо он уже был')
+        # print('Я такого города не знаю, либо он уже был')
         return -1
 
     lastb = False
