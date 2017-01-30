@@ -56,7 +56,7 @@ def _pressOffline(event):
         p = c1 / a1
         q = b1 / a1
         text += 'x1 * x2 = c / a = ' + str(p) + '\n'
-        text += 'x1 + x2 = -(b / a) = ' + str(-q) + '\n'
+        text += 'x1 + x2 = -(b / a) = ' + str(-q) + '\n\n'
         if D2 < 0:
             text += 'У этого кравнения нет корней\n'
         elif D2 == 0:
