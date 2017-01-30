@@ -1,8 +1,9 @@
 from tkinter import *
 from math import *
+import webbrowser as wb
 
 
-def _press(event):
+def _pressOffline(event):
     try:
         a1 = int(a.get('1.0', END))
     except:
@@ -69,13 +70,44 @@ def _press(event):
     solve['text'] = text
 
 
+def _pressOnline(event):
+    try:
+        a1 = int(a.get('1.0', END))
+    except:
+        solve['text'] = 'Введите в строку A только цифры'
+        return
+
+    try:
+        b1 = int(b.get('1.0', END))
+    except:
+        solve['text'] = 'Введите в строку B только цифры'
+        return
+
+    try:
+        c1 = int(c.get('1.0', END))
+    except:
+        solve['text'] = 'Введите в строку C только цифры'
+        return
+
+    url = 'http://www.nigma.ru/?s=' + str(a1) + 'x2'
+    if b1 >= 0:
+        url += '~%7C-' + str(b1) + 'x'
+    else:
+        url += str(b1) + 'x'
+    if c1 >= 0:
+        url += '~%7C-' + str(c1) + '=0'
+    else:
+        url += str(c1) + '=0'
+    wb.open(url)
+
+
 root = Tk()
 root.title('Reshatel2000')
 description = Label(root, text='Решатель2000 решает квадратные уравнения вида ax² + bx + c = 0\n '
                                'Введите ниже коэфиценты a, b и c', width=52, height=2)
-a = Text(root, height=1, width=5)
-b = Text(root, height=1, width=5)
-c = Text(root, height=1, width=5)
+a = Text(root, height=1, width=20)
+b = Text(root, height=1, width=20)
+c = Text(root, height=1, width=20)
 a.insert('1.0', '1')
 b.insert('1.0', '1')
 c.insert('1.0', '1')
@@ -87,9 +119,11 @@ var = IntVar()
 DorV = Label(root, text='Как решить уравнение?')
 Disk = Radiobutton(root, text='Через дискрименанту', variable=var, value=0)
 Viet = Radiobutton(root, text='Через теорему Виета', variable=var, value=1)
-press = Button(root, text='Решить', width=10, height=1)
+pressOffline = Button(root, text='Решить локально', width=15, height=1)
+pressOnline = Button(root, text='Решить онлайн', width=15, height=1)
 solve = Label(root, text='', width=50, height=10)
 kostil = Label(root, text='', width=0, height=0)
+kostil2 = Label(root, text='', width=0, height=0)
 
 description.grid(row=0, column=0)
 la.grid(row=2, column=0)
@@ -102,7 +136,10 @@ DorV.grid(row=5, column=0)
 Disk.place(x=45, y=125)
 Viet.place(x=260, y=125)
 kostil.grid(row=7, column=0)
-press.grid(row=8, column=0)
+kostil2.grid(row=8, column=0)
+pressOffline.place(x=30, y=145)
+pressOnline.place(x=280, y=145)
 solve.grid(row=9, column=0)
-press.bind('<Button-1>', _press)
+pressOffline.bind('<Button-1>', _pressOffline)
+pressOnline.bind('<Button-1>', _pressOnline)
 root.mainloop()
