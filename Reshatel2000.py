@@ -6,19 +6,19 @@ def _press(event):
     try:
         a1 = int(a.get('1.0', END))
     except:
-        print('Введите в строку A только цифры')
+        solve['text'] = 'Введите в строку A только цифры'
         return
 
     try:
         b1 = int(b.get('1.0', END))
     except:
-        print('Введите в строку B только цифры')
+        solve['text'] = 'Введите в строку B только цифры'
         return
 
     try:
         c1 = int(c.get('1.0', END))
     except:
-        print('Введите в строку C только цифры')
+        solve['text'] = 'Введите в строку C только цифры'
         return
 
     text = ''
@@ -90,7 +90,7 @@ DorV = Label(root, text='Как решить уравнение?')
 Disk = Radiobutton(root, text='Через дискрименанту', variable=var, value=0)
 Viet = Radiobutton(root, text='Через теорему Виета', variable=var, value=1)
 press = Button(root, text='Решить', width=10, height=1)
-solve = Label(root, text='', width=30, height=10)
+solve = Label(root, text='', width=50, height=10)
 kostil = Label(root, text='', width=0, height=0)
 
 description.grid(row=0, column=0)
