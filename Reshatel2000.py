@@ -30,12 +30,12 @@ def _pressOffline(event):
         if D1 < 0:
             text += 'D = b² - 4ac\n'
             text += 'D = ' + str(D1) + '\n'
-            text += 'Дискриминанта меньше нуля\n'
+            text += 'Дискриминант меньше нуля\n'
             text += 'У этого уравнения корней нет\n'
         elif D1 == 0:
             text += 'D = b² - 4ac\n'
             text += 'D = ' + str(D1) + '\n'
-            text += 'Дискриминанта равна нулю\n'
+            text += 'Дискриминант равен нулю\n'
             text += '     -b\n'
             text += 'x = ----\n'
             text += '     2a  \n'
@@ -46,7 +46,7 @@ def _pressOffline(event):
         else:
             text += 'D = b² - 4ac\n'
             text += 'D = ' + str(D1) + '\n'
-            text += 'Дискриминанта больше нуля\n'
+            text += 'Дискриминант больше нуля\n'
             text += '     -b ± √D\n'
             text += 'x = ---------\n'
             text += '       2a  \n'
