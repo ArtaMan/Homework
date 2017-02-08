@@ -23,6 +23,9 @@ def _pressOffline(event):
         solve['text'] = 'Введите в строку C только цифры'
         return
 
+    if a1 == 0:
+        solve['text'] = 'Введите в строку A не ноль'
+        return
     text = ''
     v = var.get()
     if v == 0:
@@ -87,6 +90,10 @@ def _pressOnline(event):
         c1 = int(c.get())
     except:
         solve['text'] = 'Введите в строку C только цифры'
+        return
+
+    if a1 == 0:
+        solve['text'] = 'Введите в строку A не ноль'
         return
 
     url = 'http://www.nigma.ru/?s=' + str(a1) + 'x2'
